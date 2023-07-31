@@ -56,6 +56,13 @@ return new class extends Migration
             $table->integer('carts_id');
             $table->integer('products_id');
         });
+
+        // Schema::create('oamrsss', function(Blueprint $table){
+        //     $table->id();
+        //     $table->integer('quantity');
+        //     $table->integer('carts_id');
+        //     $table->integer('products_id');
+        // });
     }
 
     /**
