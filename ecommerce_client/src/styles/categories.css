@@ -1,0 +1,246 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    height: 1080px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.nav{
+    height: 100%;
+    position: static;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #a5e3b9;
+    width: 200px;
+    overflow: hidden;
+}
+
+.nav .logo{
+    background-color: #008060;
+    font-weight: bold;
+    font-size: 24px;
+    width: 100%;
+    padding: 25px 0;
+    margin: 0;
+}
+
+.nav .logo:hover{
+    background-color: #008060;
+}
+
+.nav .logo a{
+    color: white;
+}
+
+.nav li{
+    padding: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.nav li:hover{
+    background-color: #7cccb8;
+    color: white;
+}
+
+.nav a{
+    text-decoration: none;
+    border: none;
+    color: black;
+    font-weight: 900;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.nav .selected{
+    background-color: #7cccb8;
+}
+
+.table_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.table_container .add_btn{
+    display: flex;
+    align-items: flex-end;
+    background-color: #008060;
+    padding: 10px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.table_container .add_btn a{
+    text-decoration: none;
+    color: white;
+}
+
+.product-table{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.product-table table{
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.product-table tr{
+    text-align: center;
+    background-color: #7cccb8;
+}
+
+.product-table th{
+    padding: 7px 0px;
+    font-size: large;
+    font-weight: 900;
+    font-size: 20px;
+    color: white;
+    background-color: #008060;
+}   
+
+.product-table td{
+    padding: 10px 0px;
+    color: black;
+    border-top: 2px solid #008060;
+    background-color: #a5e3b9;
+}
+
+
+
+.upload_popup{
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    background-color: #00000079;
+  }
+  
+
+.upload_files_container{
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 50px;
+    justify-items: center;
+    justify-content: center;
+
+}
+
+.upload_files_container .title{
+    color: #008060;
+    display: flex;
+    justify-content: center;
+}
+  
+form{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 50px 50px 0px 50px;
+}
+
+.text_feild{
+    margin-bottom: 25px;
+}
+
+.text_feild > label{
+    font-size: 18px;
+    font-weight: 700;
+    color: #008060;
+}
+
+.text_feild > input{
+    width: 100%;
+    margin-top: 15px;
+    font-size: 18px;
+    border: none;
+    border-bottom: 2px solid #a5e3b9;
+    color: black;
+    outline: none;
+    background: none;
+    
+}
+
+.btn{
+    margin-top: 10px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    border-radius: 25px;
+    color: #008060;
+    background-color: white;
+    border: 2px solid #008060;
+}
+
+.btn:hover{
+    color: white;
+    background-color: #008060;
+    border: none;
+    transition: .5s;
+}
+
+.form_bottom{
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_bottom > a{
+    text-decoration: none;
+    margin-left: 5px;
+    font-weight: bold;
+    color: #008060;
+}
+
+.close_btn a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    border-radius: 25px;
+    color: #008060;
+    background-color: white;
+    border: 2px solid #008060;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.close_btn a:hover{
+    color: white;
+    background-color: #008060;
+    border: none;
+    transition: .5s;
+}
