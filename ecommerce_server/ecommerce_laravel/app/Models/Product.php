@@ -26,4 +26,8 @@ class Product extends Model
 
         return $category->category;
     }
+
+    public function products(){
+        return $this->hasMany(Favorite::class, 'product_id');
+    }
 }

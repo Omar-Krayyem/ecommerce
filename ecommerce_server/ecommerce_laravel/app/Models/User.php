@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
+
+
+    public function type(){
+        return $this->belongsTo(UserType::class,'user_types_id');
+    }
+
+    // public function favorite(){
+    //     return $this->hasMany(Favorite::class, 'user_id');
+    // }
 }

@@ -17,7 +17,7 @@ class ProductsController extends Controller
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
         }
-        //http://127.0.0.1:8000/api/product/all
+        //http://127.0.0.1:8000/api/admin/product/all
     }
 
     function getById(Product $product){
@@ -27,7 +27,7 @@ class ProductsController extends Controller
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
         }
-        //http://127.0.0.1:8000/api/product/2
+        //http://127.0.0.1:8000/api/admin/product/2
     }
 
     function store(Request $request_info){
@@ -45,7 +45,7 @@ class ProductsController extends Controller
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
         }
-        //http://localhost:8000/api/product/store
+        //http://localhost:8000/api/admin/product/store
     }
 
     function destroy($id){
@@ -55,7 +55,7 @@ class ProductsController extends Controller
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
         }
-        //http://localhost:8000/api/product/destroy/12
+        //http://localhost:8000/api/admin/product/destroy/12
     }
 
     function update(Request $request_info){
@@ -72,7 +72,7 @@ class ProductsController extends Controller
             return self::customResponse($e->getMessage(),'error',500);
         }
 
-        //http://localhost:8000/api/product/update/
+        //http://localhost:8000/api/admin/product/update/
     }
 
     function customResponse($data, $status = 'success', $code = 200){
