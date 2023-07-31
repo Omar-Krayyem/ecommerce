@@ -31,3 +31,17 @@ Route::group(['prefix' => 'admin'], function(){
 
     Route::get('/customers', [AdminController::class, "getAll"]);
 });
+
+
+Route::group(['prefix' => 'client'], function(){
+    Route::group(['prefix' => 'home'], function(){
+        Route::get('all', [ProductsController::class, "getAll"]);
+        Route::post('/category/{id?}', [CustomersController::class, "getCategoryProducts"]);
+    });
+
+    Route::group(['prefix' => 'favorite'], function(){
+        Route::get('/{id?}', [CustomersController::class, "getFavorites"]);
+        Route::post('/add', [CustomersController::class, "addFavorite"]);
+        Route::get('/destroy/{id?}', [CustomersController::class, "destroy"]);
+    });
+});
