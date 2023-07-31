@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    height: 1080px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.nav{
+    height: 100%;
+    position: static;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #a5e3b9;
+    width: 200px;
+    overflow: hidden;
+}
+
+.nav .logo{
+    background-color: #008060;
+    font-weight: bold;
+    font-size: 24px;
+    width: 100%;
+    padding: 25px 0;
+    margin: 0;
+}
+
+.nav .logo:hover{
+    background-color: #008060;
+}
+
+.nav .logo a{
+    color: white;
+}
+
+.nav li{
+    padding: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.nav li:hover{
+    background-color: #7cccb8;
+    color: white;
+}
+
+.nav a{
+    text-decoration: none;
+    border: none;
+    color: black;
+    font-weight: 900;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.nav .selected{
+    background-color: #7cccb8;
+}
+
+.table_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.customer-table{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.customer-table table{
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.customer-table tr{
+    text-align: center;
+    background-color: #7cccb8;
+}
+
+.customer-table th{
+    padding: 7px 0px;
+    font-size: large;
+    font-weight: 900;
+    font-size: 20px;
+    color: white;
+    background-color: #008060;
+}   
+
+.customer-table td{
+    padding: 10px 0px;
+    color: black;
+    border-top: 2px solid #008060;
+    background-color: #a5e3b9;
+}
