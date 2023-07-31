@@ -9,9 +9,6 @@ class ProductCategory extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
-
-
     public function products(){
         return $this->hasMany(Product::class, 'product_categories_id');
     }
