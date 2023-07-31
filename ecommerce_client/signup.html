@@ -9,6 +9,7 @@
     referrerpolicy="no-referrer"/>
     <link href="src/img/logo.png" rel="shortcut icon" type="image/x-icon">
     <link href="src/styles/signup.css"  rel="stylesheet">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecommerce Laravell</title>
@@ -20,28 +21,26 @@
             <form>
                 <div class="text_feild">
                     <label>Fist Name</label><br>
-                    <input type="text" placeholder="Fist Name"> 
+                    <input type="text" id="first_name" placeholder="Fist Name" required> 
                 </div>
                 <div class="text_feild">
                     <label>Last Name</label><br>
-                    <input type="text" placeholder="Last Name"> 
+                    <input type="text" id="last_name" placeholder="Last Name" required> 
                 </div>
                 <div class="text_feild">
-                    <label>Username</label><br>
-                    <input type="text" placeholder="Username"> 
+                    <label>Email</label><br>
+                    <input type="email" id="email" placeholder="Email" required> 
                 </div>
                 <div class="text_feild">
                     <label>Password</label><br>
-                    <input type="password" placeholder="Password"> 
+                    <input type="password" id="password" placeholder="Password" required> 
                 </div>
-                <div class="text_feild">
-                    <label>Confirm Password</label><br>
-                    <input type="text" placeholder="Confirm Password"> 
-                </div>
-                <input type="submit" class="btn" value="Signup">
+                <label id="error" class="error"></label>
+                <input type="submit" class="btn" id="signupbtn" value="Signup">
             </form>
         </div>
         <div class="form_bottom">Already have an account<a href="index.html">login</a></div>
     </div>
+    <script src="src/scripts/signup.js"></script>
 </body>
 </html>
