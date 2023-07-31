@@ -11,6 +11,8 @@ class ProductCategory extends Model
 
     protected $table = 'product_categories';
 
+    protected $guarded = [];
+
     public $timestamps = false;
 
     public function products(){

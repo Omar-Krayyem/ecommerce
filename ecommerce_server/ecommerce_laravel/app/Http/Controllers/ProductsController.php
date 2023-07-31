@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    function getall(){
+    function getAll(){
         try{    
             // $products = ProductCategory::with('products')->get();
 
@@ -79,5 +79,4 @@ class ProductsController extends Controller
         $response = ['status' => $status,'data' => $data];
         return response()->json($response,$code);
     }
-
 }

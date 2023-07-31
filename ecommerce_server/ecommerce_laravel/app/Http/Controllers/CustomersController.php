@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Favorite;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Users;
 use App\Models\ProductCategory;
 use Exception;
 

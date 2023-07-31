@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\User;
+
+use App\Models\Users;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class AdminController extends Controller
         try{    
             // $products = ProductCategory::with('products')->get();
 
-            $users = User::where('user_types_id', 2)->with('type')->get();
+            $users = Users::where('user_types_id', 2)->with('type')->get();
             return $this->customResponse($users);
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
@@ -35,7 +36,6 @@ class AdminController extends Controller
 
     function getById(ProductCategory $category){
         try{
-          
             return $this->customResponse($category);
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
@@ -48,19 +48,12 @@ class AdminController extends Controller
            $validated_data = $this->validate($request_info, [
                 'category' => ['required','string', 'unique:product_categories'],
             ]); 
-            // if(ProductCategory::find($request_info)){
-            //     $category = ProductCategory::create($request_info);
-            //     return $this->customResponse($category, 'Category Created Successfully');
-            // }
-            // else{
-            //     return $this->customResponse('already exist');
-            // }
+                $category = ProductCategory::create($validated_data);
 
-            return $this->customResponse($validated_data, 'Category Created Successfully');
+            return $this->customResponse($category, 'Category Created Successfully');
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
         }
-        //http://localhost:8000/api/admin/product/store
     }
 
     function destroy($id){
