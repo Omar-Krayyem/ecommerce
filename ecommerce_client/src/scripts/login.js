@@ -1,27 +1,23 @@
 document.addEventListener("DOMContentLoaded", async function (){
-    let first_name = document.getElementById('first_name');
-    let last_name = document.getElementById('last_name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
     let err = document.getElementById("error");
-    const signup_btn = document.getElementById('signupbtn');
+    const login_btn = document.getElementById('loginbtn');
 
-    signup_btn.addEventListener("click", async()=>{
+    login_btn.addEventListener("click", async()=>{
         event.preventDefault()
-        if (first_name.value != '' && last_name.value != '' && email.value != '' && password.value != '') {
-            const newUser = {
+        if ( email.value != '' && password.value != '') {
+            const user = {
                 email: email.value,
-                first_name: first_name.value,
-                last_name: last_name.value,
                 password: password.value
             }
             try{
-                const response = await fetch ("http://localhost:8000/api/register",{
+                const response = await fetch ("http://localhost:8000/api/login",{
                     method:"POST",
                     headers:{
                         'Content-Type':'application/json'
                     },
-                    body: JSON.stringify(newUser)
+                    body: JSON.stringify(user)
                 });
 
                 if (!response.ok) {
@@ -30,6 +26,9 @@ document.addEventListener("DOMContentLoaded", async function (){
                 const data = await response.json();
                 console.log(data);
                 if (data.status === 'success') {
+                    console.log(data.authorisation.token);
+                    localStorage.setItem("user_id", data.user.id);
+                    localStorage.setItem("token", data.authorisation.token);
                     window.location.href = "../../ecommerce/ecommerce_client/home.html";
                 }
                 else {

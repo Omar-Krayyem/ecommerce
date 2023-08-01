@@ -112,13 +112,13 @@ class CustomersController extends Controller
                 $cart_id = $cart->id;
             }
 
-            $cart_item = CartItem::where('carts_id', $cart_id)->where('products_id', $product_id)->first();
+            $cart_item = CartItem::where('carts_id', $cart->id)->where('products_id', $product_id)->first();
             if($cart_item){
                 return $this->customResponse($cart_item, 'Allready exist');
             }
 
             $cart_item = new CartItem();
-            $cart_item->carts_id = $cart_id;
+            $cart_item->carts_id = $cart->id;
             $cart_item->products_id = $product_id;
 
             $cart_item->save();

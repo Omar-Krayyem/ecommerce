@@ -22,6 +22,18 @@ class AdminController extends Controller
         //http://127.0.0.1:8000/api/product/all
     }
 
+    function getCategoryProducts($id){
+        try{    
+            $products = Product::where('product_categories_id', $id)->get();
+
+            // $users = Users::where('user_types_id', 2)->with('type')->get();
+            return $this->customResponse($products);
+        }catch(Exception $e){
+            return self::customResponse($e->getMessage(),'error',500);
+        }
+        //http://127.0.0.1:8000/api/product/all
+    }
+
     function getCategory(){
         try{    
             // $products = ProductCategory::with('products')->get();

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 
 Route::controller(AuthController::class)->group(function () {
@@ -45,7 +46,8 @@ Route::group(['prefix' => 'admin'], function(){
 Route::group(['prefix' => 'client'], function(){
     Route::group(['prefix' => 'home'], function(){
         Route::get('all', [ProductsController::class, "getAll"]);
-        Route::post('/category/{id?}', [CustomersController::class, "getCategoryProducts"]);
+        Route::get('categories', [AdminController::class, "getCategory"]);
+        Route::get('/category/{id?}', [AdminController::class, "getCategoryProducts"]);
     });
 
     Route::group(['prefix' => 'favorite'], function(){
