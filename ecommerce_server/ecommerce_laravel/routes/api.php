@@ -60,3 +60,8 @@ Route::group(['prefix' => 'client'], function(){
         Route::get('/destroy/{id?}', [CustomersController::class, "deleteItem"]);
     });
 });
+
+Route::group(['prefix' => 'auth', 'middleware' => 'cors'], function() {
+    Route::post('/login', 'AuthController@login');
+    Route::post('/register', 'AuthController@register');
+    });
