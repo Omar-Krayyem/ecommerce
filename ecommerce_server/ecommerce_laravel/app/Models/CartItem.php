@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class CartItem extends Model
 {
     use HasFactory;
+
+    protected $table = 'cart_items';
+
+    protected $guarded = [];
+
+    public $timestamps = false;
 }

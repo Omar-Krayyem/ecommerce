@@ -50,7 +50,13 @@ Route::group(['prefix' => 'client'], function(){
 
     Route::group(['prefix' => 'favorite'], function(){
         Route::get('/{id?}', [CustomersController::class, "getFavorites"]);
-        Route::post('/add/{id?}', [CustomersController::class, "addFavorite"]);
+        Route::post('/add', [CustomersController::class, "addFavorite"]);
         Route::get('/destroy/{id?}', [CustomersController::class, "destroy"]);
+    });
+
+    Route::group(['prefix' => 'cart'], function(){
+        Route::get('/{id?}', [CustomersController::class, "getCart"]);
+        Route::post('/add', [CustomersController::class, "addCartItem"]);
+        Route::get('/destroy/{id?}', [CustomersController::class, "deleteItem"]);
     });
 });
