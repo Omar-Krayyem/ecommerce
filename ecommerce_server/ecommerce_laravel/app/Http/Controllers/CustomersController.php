@@ -42,12 +42,21 @@ class CustomersController extends Controller
         //http://127.0.0.1:8000/api/client/favorite/add
     }
 
-    function destroy($id){
+    function destroy(Request $request_info){
         try{
+            $validated_data = $this->validate($request_info, [
+                'product_id' => ['required','exists:products,id'],
+                'user_id' => ['required','exists:users,id'],
+            ]); 
 
-            $favoritte = Favorite::find($id)->delete();
+            $user_id = $request_info->user_id;
+            $product_id = $request_info->product_id;
 
-            return $this->customResponse($favoritte, 'Deleted Successfully');
+            $favorite = Favorite::where('user_id', $user_id)
+                    ->where('product_id', $product_id)
+                    ->delete();
+
+            return $this->customResponse($favorite, 'Deleted Successfully');
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
         }

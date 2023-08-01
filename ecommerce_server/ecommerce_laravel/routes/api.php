@@ -53,7 +53,7 @@ Route::group(['prefix' => 'client'], function(){
     Route::group(['prefix' => 'favorite'], function(){
         Route::get('/{id?}', [CustomersController::class, "getFavorites"]);
         Route::post('/add', [CustomersController::class, "addFavorite"]);
-        Route::get('/destroy/{id?}', [CustomersController::class, "destroy"]);
+        Route::post('/destroy', [CustomersController::class, "destroy"]);
     });
 
     Route::group(['prefix' => 'cart'], function(){
