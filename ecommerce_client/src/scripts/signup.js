@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             const data = await response.json();
             if (data.message === "User created successfully") {
-            console.log("its a yay");
+            console.log("done");
             } else {
-            console.log("its a nay");
+            console.log("error");
             }
         } catch (error) {
             console.log('There was an error', error);

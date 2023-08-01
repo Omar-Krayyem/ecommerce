@@ -24,8 +24,20 @@ class CustomersController extends Controller
         }
     }
 
-    function addFavorite(){
-        
+    function addFavorite(Request $request_info){
+        try{
+            $validated_data = $this->validate($request_info, [
+                'product_id' => ['required','exists:products,id'],
+                'user_id' => ['required','exists:users,id'],
+            ]); 
+
+            $favorite = Favorite::create($validated_data);
+
+            return $this->customResponse($favorite, 'Favorite Added Successfully');
+        }catch(Exception $e){
+            return self::customResponse($e->getMessage(),'error',500);
+        }
+        //http://127.0.0.1:8000/api/client/favorite/add
     }
 
     function destroy($id){
