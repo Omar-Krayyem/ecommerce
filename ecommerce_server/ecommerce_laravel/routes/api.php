@@ -27,8 +27,8 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('all', [ProductsController::class, "getAll"]);
         Route::get('/{product}', [ProductsController::class, "getById"]);
         Route::post('/store', [ProductsController::class, "store"]);
-        Route::post('/update/{id?}', [ProductsController::class, "update"]);
-        Route::post('/destroy/{id?}', [ProductsController::class, "destroy"]);
+        Route::post('update/{id?}', [ProductsController::class, "update"]);
+        Route::delete('destroy/{id}', [ProductsController::class, "destroy"]);
     });
 
     Route::group(['prefix' => 'category'], function(){
@@ -36,7 +36,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/{category}', [AdminController::class, "getById"]);
         Route::post('/store', [AdminController::class, "store"]);
         Route::post('/update/{id?}', [AdminController::class, "update"]);
-        Route::post('/destroy/{id?}', [AdminController::class, "destroy"]);
+        Route::post('destroy/{id}', [AdminController::class, "destroy"]);
     });
 
     Route::get('/customers', [AdminController::class, "getAll"]);
