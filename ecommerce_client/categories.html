@@ -35,38 +35,15 @@
                         <th>Name</th>
                         <th style="border-top-right-radius: 10px;">Action</th>
                     </tr>
-                    <tr id="table-button">
-                        <td >1</td>
-                        <td >Electronic</td>
-                        <td>
-                            <a href="#"><i class="fa-solid fa-trash" style="color: black"></i></a> 
-                            <a href="#"><i class="fa-solid fa-pen-to-square" style="color: black"></i></a>
-                        </td>
-                    </tr>
-                    <tr id="table-button">
-                        <td >1</td>
-                        <td >Electronic</td>
-                        <td>
-                            <a href="#"><i class="fa-solid fa-trash" style="color: black"></i></a> 
-                            <a href="#"><i class="fa-solid fa-pen-to-square" style="color: black"></i></a>
-                        </td>
-                    </tr>
-                    <tr id="table-button">
-                        <td >1</td>
-                        <td >Electronic</td>
-                        <td>
-                            <a href="#"><i class="fa-solid fa-trash" style="color: black"></i></a> 
-                            <a href="#"><i class="fa-solid fa-pen-to-square" style="color: black"></i></a>
-                        </td>
-                    </tr>
-                    <tr id="table-button">
-                        <td >1</td>
-                        <td >Electronic</td>
-                        <td>
-                            <a href="#"><i class="fa-solid fa-trash" style="color: black"></i></a> 
-                            <a href="#"><i class="fa-solid fa-pen-to-square" style="color: black"></i></a>
-                        </td>
-                    </tr>
+                    <tbody id="table_body">
+                        <tr >
+                            <td >1</td>
+                            <td >Electronic</td>
+                            <td>
+                                <a href="#"><i class="fa-solid fa-trash" style="color: black"></i></a> 
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -79,14 +56,14 @@
                 <form>
                     <div class="text_feild">
                         <label>Category Name</label><br>
-                        <input type="text" placeholder="Category Name"> 
+                        <input type="text" id="category" placeholder="Category Name"> 
                     </div>
-                    <input type="submit" class="btn" value="Add">
+                    <input type="submit" class="btn" id="submit" value="Add">
                     <div class="close_btn"><a>Close</a></div>
                 </form>
             </div>
           </div>
         </div>
-        
+        <script src="src/scripts/categories.js"></script>
 </body>
 </html>

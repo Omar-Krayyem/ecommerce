@@ -36,7 +36,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/{category}', [AdminController::class, "getById"]);
         Route::post('/store', [AdminController::class, "store"]);
         Route::post('/update/{id?}', [AdminController::class, "update"]);
-        Route::post('destroy/{id}', [AdminController::class, "destroy"]);
+        Route::delete('destroy/{id}', [AdminController::class, "destroy"]);
     });
 
     Route::get('/customers', [AdminController::class, "getAll"]);
