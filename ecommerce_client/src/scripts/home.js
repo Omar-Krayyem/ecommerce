@@ -127,8 +127,18 @@ async function addCart(product_id){
 //   http://127.0.0.1:8000/api/client/favorite/add
 
 
+
+
   function getCategories(){
-    fetch("http://127.0.0.1:8000/api/client/home/categories")
+    let token = localStorage.getItem("token");
+
+    fetch("http://127.0.0.1:8000/api/client/home/categories", {
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization' : token
+        },
+    }
+   )
         .then((response) => response.json())
         .then((categories) => {
             categoryArray = categories.data;
@@ -146,6 +156,7 @@ async function addCart(product_id){
       const listItem = document.createElement("category");
     //   listItem.classList.add('category');
       listItem.innerHTML = `
+      
         <a onclick='getProductById(${category.id})'>${category.category}</a>
         
       `;

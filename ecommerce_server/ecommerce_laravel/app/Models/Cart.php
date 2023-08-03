@@ -14,4 +14,12 @@ class Cart extends Model
     protected $guarded = [];
 
     public $timestamps = false;
+
+    public function user(){
+        return $this->belongsTo(User::class, 'users_id');
+    }
+
+    public function items(){
+        return $this->hasMany(CartItem::class,'carts_id');
+    }
 }

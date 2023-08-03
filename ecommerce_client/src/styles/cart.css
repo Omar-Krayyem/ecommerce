@@ -104,7 +104,7 @@ nav .right_nav a:hover{
     background-color: #a5e3b9;
 }
 
-.table_row img{
+#table_body img{
     width: 75px;
     height: 75px;
 }

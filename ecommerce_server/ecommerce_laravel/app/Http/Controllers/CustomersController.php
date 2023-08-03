@@ -6,6 +6,8 @@ use App\Models\Favorite;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Users;
 use App\Models\ProductCategory;
@@ -63,35 +65,14 @@ class CustomersController extends Controller
         //http://localhost:8000/api/admin/category/destroy/18
     }
 
-    function getCart($id){
+    function getCart(User $user){
         try{
-            $users_id = $id;
-            $cart = Cart::where('users_id', $users_id)->first();
+            $cart_items = $user->cart->items->load('product'); 
 
-            if($cart){
-                $cart_id = $cart->id;
-
-                $cart_items = CartItem::where('carts_id', $cart_id)->get();
-                foreach ($cart_items as $cart_item) {
-                    $name = Product::find($cart_item->products_id)->name;
-                    $description = Product::find($cart_item->products_id)->description;
-                    $price = Product::find($cart_item->products_id)->price;
-    
-                    $cart_item->name = $name;
-                    $cart_item->description = $description;
-                    $cart_item->price = $price;
-                }
-                return self::customResponse($cart_items, 'sucess', 200);
-            }
-            else{
-                $cart = new Cart();
-                $cart->users_id = $users_id;
-                $cart->total = 0;
-                $cart->save();
-
-                $cart_id = $cart->id;
-                return self::customResponse($cart_id, 'created new cart with 0 item', 200);
-            }
+            if(!$cart_items) return self::customResponse([], "No cart items", 200);
+            
+            return self::customResponse($cart_items, 'sucess', 200);
+          
             
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
@@ -103,7 +84,7 @@ class CustomersController extends Controller
         try{
             $validated_data = $this->validate($request_info, [
                 'user_id' => ['required','numeric'],
-                'product_id' => ['required','numeric'],
+     -           'product_id' => ['required','numeric'],
                 
             ]);
     
@@ -139,23 +120,11 @@ class CustomersController extends Controller
         //http://127.0.0.1:8000/api/client/cart/add/
     }
 
-    function deleteItem($product_id){
+    function deleteItem(CartItem $item){
         try{
-            $user_id = auth()->user()->id;
-            // $user_id = 3;
-            $cart_id = Cart::where('users_id', $user_id)->first()->id;
-            
-            $cart_item = CartItem::where('carts_id', $cart_id)->where('products_id', $product_id)->first();
-            
-            if ($cart_item) {
-                $cart_item->delete();
-                return $this->customResponse(null, 'Deleted Successfully');
-            } 
-            else {
-                return $this->customResponse(null, 'CartItem not found', 404);
-            }
+            $item->delete();
+            return $this->customResponse([], 'Deleted Successfully');
 
-            return $this->customResponse($cart_item, 'Deleted Successfully');
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
         }

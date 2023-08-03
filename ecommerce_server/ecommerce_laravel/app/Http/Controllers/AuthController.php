@@ -34,10 +34,7 @@ class AuthController extends Controller
         return response()->json([
                 'status' => 'success',
                 'user' => $user,
-                'authorisation' => [
-                    'token' => $token,
-                    'type' => 'bearer',
-                ]
+                'token' => $token,
             ]);
 
             // http://127.0.0.1:8000/api/login

@@ -26,10 +26,16 @@ document.addEventListener("DOMContentLoaded", async function (){
                 const data = await response.json();
                 console.log(data);
                 if (data.status === 'success') {
-                    console.log(data.authorisation.token);
+                    console.log(data.token);
                     localStorage.setItem("user_id", data.user.id);
-                    localStorage.setItem("token", data.authorisation.token);
-                    window.location.href = "../../ecommerce/ecommerce_client/home.html";
+                    localStorage.setItem("token", data.token);
+                    if(data.user.user_types_id == 2){
+                        window.location.href = "../../ecommerce/ecommerce_client/home.html";
+                    }
+                    else{
+                        window.location.href = "../../ecommerce/ecommerce_client/admin.html";
+                    }
+                    
                 }
                 else {
                     console.error('Registration failed:', data.message);
